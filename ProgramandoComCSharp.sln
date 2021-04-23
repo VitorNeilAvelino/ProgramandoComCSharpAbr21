@@ -5,11 +5,13 @@ VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.Capitulo01.Sintaxe", "CSharp.Capitulo01.Sintaxe\CSharp.Capitulo01.Sintaxe.csproj", "{37A28FB7-E424-491F-9490-173E9A446398}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.Capitulo01.ValeTransporte", "CSharp.Capitulo01.ValeTransporte\CSharp.Capitulo01.ValeTransporte.csproj", "{DD15D295-709E-4676-9C9F-E88A4EBEECCF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharp.Capitulo01.ValeTransporte", "CSharp.Capitulo01.ValeTransporte\CSharp.Capitulo01.ValeTransporte.csproj", "{DD15D295-709E-4676-9C9F-E88A4EBEECCF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.Capitulo02.GeradorSenha", "CSharp.Capitulo02.GeradorSenha\CSharp.Capitulo02.GeradorSenha.csproj", "{66C28524-2627-4E4E-96FF-71168DE7B80A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharp.Capitulo02.GeradorSenha", "CSharp.Capitulo02.GeradorSenha\CSharp.Capitulo02.GeradorSenha.csproj", "{66C28524-2627-4E4E-96FF-71168DE7B80A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.Capitulo02.EstruturasControle.Testes", "CSharp.Capitulo02.EstruturasControle.Testes\CSharp.Capitulo02.EstruturasControle.Testes.csproj", "{2323E6F2-74E2-467B-849D-5FF0EE42053C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharp.Capitulo02.EstruturasControle.Testes", "CSharp.Capitulo02.EstruturasControle.Testes\CSharp.Capitulo02.EstruturasControle.Testes.csproj", "{2323E6F2-74E2-467B-849D-5FF0EE42053C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fintech.Modelos", "Fintech.Modelos\Fintech.Modelos.csproj", "{5C51080A-AA8A-4144-A6CF-CC551ADCAD0D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{2323E6F2-74E2-467B-849D-5FF0EE42053C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2323E6F2-74E2-467B-849D-5FF0EE42053C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2323E6F2-74E2-467B-849D-5FF0EE42053C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C51080A-AA8A-4144-A6CF-CC551ADCAD0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C51080A-AA8A-4144-A6CF-CC551ADCAD0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C51080A-AA8A-4144-A6CF-CC551ADCAD0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C51080A-AA8A-4144-A6CF-CC551ADCAD0D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
