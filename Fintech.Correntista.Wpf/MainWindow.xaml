@@ -5,71 +5,85 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Fintech.Correntista.Wpf"
         mc:Ignorable="d"
-        Title="Fintech Correntista" WindowState="Maximized" >
+        Title="Fintech Correntista" WindowState="Maximized" MinWidth="800" MinHeight="600">
     <TabControl>
         <TabItem Header="Clientes">
             <TabControl TabStripPlacement="Left">
                 <TabItem Header="Pesquisa">
-                    
+
                 </TabItem>
                 <TabItem Header="Cadastro">
                     <StackPanel>
                         <DockPanel>
-                            <Label Content="CPF:" Width="120" HorizontalContentAlignment="Right"></Label>
+                            <Label Content="CPF:" Width="120" HorizontalContentAlignment="Right"/>
                             <TextBox Name="cpfTextBox" 
                                      VerticalContentAlignment="Center" 
                                      Height="23" 
-                                     TextWrapping="NoWrap"></TextBox>
+                                    Width="580"
+                                     HorizontalAlignment="Left"                                     
+                                     TextWrapping="NoWrap"/>
                         </DockPanel>
                         <DockPanel>
-                            <Label Content="Nome:" Width="120" HorizontalContentAlignment="Right"></Label>
+                            <Label Content="Nome:" Width="120" HorizontalContentAlignment="Right"/>
                             <TextBox Name="nomeTextBox" 
                                      VerticalContentAlignment="Center" 
                                      Height="23" 
-                                     TextWrapping="NoWrap"></TextBox>
+                                    Width="580"
+                                     HorizontalAlignment="Left"                                     
+                                     TextWrapping="NoWrap"/>
                         </DockPanel>
                         <DockPanel>
-                            <Label Content="Data de nascimento:" Width="120" HorizontalContentAlignment="Right"></Label>
+                            <Label Content="Data de nascimento:" Width="120" HorizontalContentAlignment="Right"/>
                             <TextBox Name="dataNascimentoTextBox" 
                                      VerticalContentAlignment="Center" 
                                      Height="23" 
-                                     TextWrapping="NoWrap"></TextBox>
+                                    Width="580"
+                                     HorizontalAlignment="Left"                                     
+                                     TextWrapping="NoWrap"/>
                         </DockPanel>
                         <DockPanel>
-                            <Label Content="Sexo:" Width="120" HorizontalContentAlignment="Right"></Label>
+                            <Label Content="Sexo:" Width="120" HorizontalContentAlignment="Right"/>
                             <ComboBox Name="sexoComboBox" 
                                      VerticalContentAlignment="Center" 
                                       HorizontalAlignment="Left"
                                      Height="23" 
-                                     Width="150"></ComboBox>
+                                     Width="150"/>
                         </DockPanel>
                         <DockPanel>
-                            <Label Content="Logradouro:" Width="120" HorizontalContentAlignment="Right"></Label>
+                            <Label Content="Logradouro:" Width="120" HorizontalContentAlignment="Right"/>
                             <TextBox Name="logradouroTextBox" 
                                      VerticalContentAlignment="Center" 
                                      Height="23" 
-                                     TextWrapping="NoWrap"></TextBox>
-                        </DockPanel>                        
+                                    Width="580"
+                                     HorizontalAlignment="Left"                                     
+                                     TextWrapping="NoWrap"/>
+                        </DockPanel>
                         <DockPanel>
-                            <Label Content="Número:" Width="120" HorizontalContentAlignment="Right"></Label>
+                            <Label Content="Número:" Width="120" HorizontalContentAlignment="Right"/>
                             <TextBox Name="numeroTextBox" 
                                      VerticalContentAlignment="Center" 
                                      Height="23" 
-                                     TextWrapping="NoWrap"></TextBox>
-                        </DockPanel>                        
+                                    Width="580"
+                                     HorizontalAlignment="Left"                                     
+                                     TextWrapping="NoWrap"/>
+                        </DockPanel>
                         <DockPanel>
-                            <Label Content="Cidade:" Width="120" HorizontalContentAlignment="Right"></Label>
+                            <Label Content="Cidade:" Width="120" HorizontalContentAlignment="Right"/>
                             <TextBox Name="cidadeTextBox" 
                                      VerticalContentAlignment="Center" 
                                      Height="23" 
-                                     TextWrapping="NoWrap"></TextBox>
-                        </DockPanel>                        
+                                    Width="580"
+                                     HorizontalAlignment="Left"
+                                     TextWrapping="NoWrap"/>
+                        </DockPanel>
                         <DockPanel>
-                            <Label Content="CEP:" Width="120" HorizontalContentAlignment="Right"></Label>
+                            <Label Content="CEP:" Width="120" HorizontalContentAlignment="Right"/>
                             <TextBox Name="cepTextBox" 
                                      VerticalContentAlignment="Center" 
                                      Height="23" 
-                                     TextWrapping="NoWrap"></TextBox>
+                                     Width="580"
+                                     HorizontalAlignment="Left"
+                                     TextWrapping="NoWrap"/>
                         </DockPanel>
                         <DockPanel>
                             <Button x:Name="incluirClienteButton"
@@ -77,7 +91,7 @@
                                     Margin="120 2 0 0"
                                     Height="23"
                                     HorizontalAlignment="Left"
-                                    Width="150"></Button>
+                                    Width="150"/>
                         </DockPanel>
                     </StackPanel>
                 </TabItem>
