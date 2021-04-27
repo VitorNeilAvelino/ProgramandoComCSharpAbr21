@@ -6,4 +6,8 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Fintech.Modelos\Fintech.Modelos.csproj" />
+  </ItemGroup>
+
 </Project>
