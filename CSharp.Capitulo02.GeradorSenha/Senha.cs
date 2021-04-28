@@ -33,7 +33,7 @@ namespace CSharp.Capitulo02.GeradorSenha
         public int Tamanho { get; set; } //= TamanhoMinimo;
         public string Valor { get; set; }
 
-        public string GerarSenha()
+        private string GerarSenha()
         {
             var senha = "";
             var randomico = new Random();

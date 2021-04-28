@@ -1,11 +1,11 @@
 ﻿using System;
 
-namespace CSharp.Capitulo01.ValeTransporte
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
+//namespace CSharp.Capitulo01.ValeTransporte
+//{
+    //class Program
+    //{
+    //    static void Main(string[] args)
+    //    {
             Inicio:
 
             Console.Write("Informe o nome do funcionário: ");
@@ -42,6 +42,6 @@ namespace CSharp.Capitulo01.ValeTransporte
             //Main(args);
 
             goto Inicio;
-        }
-    }
-}
+    //    }
+    //}
+//}

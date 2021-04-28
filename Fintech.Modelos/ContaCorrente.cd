@@ -1,37 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Fintech.Modelos.ContaCorrente">
-    <Position X="2.75" Y="3.75" Width="1.5" />
+  <Class Name="Fintech.Modelos.ContaCorrente" Collapsed="true">
+    <Position X="5.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAQAAAAQgAAIAAAABAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAA=</HashCode>
       <FileName>ContaCorrente.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Agencia" />
-      <Property Name="Cliente" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Fintech.Modelos.Cliente">
-    <Position X="5.75" Y="4" Width="1.5" />
+    <Position X="4.75" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAIAAAEAAAAAAAGAEAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAIAAAAAAAAAAAGAkAA=</HashCode>
       <FileName>Cliente.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="ContaCorrente" />
-      <Property Name="Endereco" />
       <Property Name="Sexo" />
+      <Property Name="Endereco" />
     </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Contas" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Fintech.Modelos.Endereco" Collapsed="true">
-    <Position X="5.75" Y="6.5" Width="1.5" />
+    <Position X="4.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAIEAAAAAACAAAAAAAAAAAAAAAABAAA=</HashCode>
       <FileName>Endereco.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Fintech.Modelos.Agencia" Collapsed="true">
-    <Position X="2.75" Y="2.5" Width="1.5" />
+    <Position X="10.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAgAAAAAAABAAA=</HashCode>
       <FileName>Agencia.cs</FileName>
@@ -41,14 +39,38 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Fintech.Modelos.Banco" Collapsed="true">
-    <Position X="2.75" Y="0.5" Width="1.5" />
+    <Position X="10.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBAAA=</HashCode>
       <FileName>Banco.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Fintech.Modelos.Poupanca" Collapsed="true">
+    <Position X="7.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Poupanca.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fintech.Modelos.Conta">
+    <Position X="7.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAQAAAAQgAAIAAAABAAA=</HashCode>
+      <FileName>Conta.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Agencia" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Fintech.Modelos.ContaEspecial" Collapsed="true">
+    <Position X="10" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>ContaEspecial.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Enum Name="Fintech.Modelos.Sexo" Collapsed="true">
-    <Position X="5.75" Y="2.5" Width="1.5" />
+    <Position X="2.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Sexo.cs</FileName>

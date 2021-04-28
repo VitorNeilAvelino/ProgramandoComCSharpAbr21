@@ -11,18 +11,18 @@ namespace CSharp.Capitulo02.GeradorSenha.Tests
     [TestClass()]
     public class SenhaTests
     {
-        [TestMethod]
-        public void GerarSenhaSemParametrosDeveRetornarSenhaPadrao()
-        {
-            var senha = new Senha();
+        //[TestMethod]
+        //public void GerarSenhaSemParametrosDeveRetornarSenhaPadrao()
+        //{
+        //    var senha = new Senha();
 
-            var valorSenha = senha.GerarSenha();
+        //    var valorSenha = senha.GerarSenha();
 
-            Assert.IsTrue(valorSenha.Length == Senha.TamanhoMinimo);
-            Assert.IsTrue(int.TryParse(valorSenha, out int _));
+        //    Assert.IsTrue(valorSenha.Length == Senha.TamanhoMinimo);
+        //    Assert.IsTrue(int.TryParse(valorSenha, out int _));
 
-            Console.WriteLine(valorSenha);
-        }
+        //    Console.WriteLine(valorSenha);
+        //}
 
         [TestMethod]
         public void ConstrutorPadraoDeveRetornarSenhaPadrao()
