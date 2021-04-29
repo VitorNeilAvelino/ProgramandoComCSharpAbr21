@@ -5,6 +5,11 @@ namespace Fintech.Modelos
 {
     public class Cliente
     {
+        public Cliente()
+        {
+            Contas = new List<Conta>();
+        }
+
         public string Nome { get; set; }
         public string Cpf { get; set; }
         public DateTime DataNascimento { get; set; }
