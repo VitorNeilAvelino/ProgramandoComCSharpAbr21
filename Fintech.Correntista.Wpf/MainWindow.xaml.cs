@@ -46,6 +46,9 @@ namespace Fintech.Correntista.Wpf
             tipoContaComboBox.Items.Add(TipoConta.ContaEspecial);
             tipoContaComboBox.Items.Add(TipoConta.Poupanca);
 
+            operacaoComboBox.Items.Add(Operacao.Deposito);
+            operacaoComboBox.Items.Add(Operacao.Saque);
+
             clientesDataGrid.ItemsSource = Clientes;
         }
 
@@ -110,13 +113,18 @@ namespace Fintech.Correntista.Wpf
 
         private void SelecionarClienteButtonClick(object sender, RoutedEventArgs e)
         {
+            SelecionarCliente(sender);
+
+            clienteTextBox.Text = $"{ClienteSelecionado.Nome} - {ClienteSelecionado.Cpf}";
+            contasTabItem.Focus();
+        }
+
+        private void SelecionarCliente(object sender)
+        {
             var botaoClicado = (Button)sender;
             var clienteSelecionado = botaoClicado.DataContext;
 
             ClienteSelecionado = (Cliente)clienteSelecionado;
-
-            clienteTextBox.Text = $"{ClienteSelecionado.Nome} - {ClienteSelecionado.Cpf}";
-            contasTabItem.Focus();
         }
 
         private void incluirContaButton_Click(object sender, RoutedEventArgs e)
@@ -169,6 +177,56 @@ namespace Fintech.Correntista.Wpf
             dvContaTextBox.Clear();
             tipoContaComboBox.SelectedIndex = -1;
             limiteTextBox.Clear();
+        }
+
+        private void SelecionarContaButtonClick(object sender, RoutedEventArgs e)
+        {
+            SelecionarCliente(sender);
+
+            contaTextBox.Text = $"{ClienteSelecionado.Nome} - {ClienteSelecionado.Cpf}";
+
+            contaComboBox.ItemsSource = ClienteSelecionado.Contas;
+            contaComboBox.Items.Refresh();
+
+            LimparControlesOperacoes();
+
+            operacoesTabItem.Focus();
+        }
+
+        private void LimparControlesOperacoes()
+        {
+            contaComboBox.SelectedIndex = -1;
+            operacaoComboBox.SelectedIndex = -1;
+            valorTextBox.Clear();
+            movimentacaoDataGrid.ItemsSource = null;
+            saldoTextBox.Clear();
+        }
+
+        private void contaComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (contaComboBox.SelectedIndex == -1)
+            {
+                return;
+            }
+
+            var conta = (Conta)contaComboBox.SelectedItem;
+
+            movimentacaoDataGrid.ItemsSource = conta.Movimentos;
+            saldoTextBox.Text = conta.Saldo.ToString("c");
+        }
+
+        private void incluirOperacaoButton_Click(object sender, RoutedEventArgs e)
+        {
+            var conta = (Conta)contaComboBox.SelectedItem;
+            var operacao = (Operacao)operacaoComboBox.SelectedItem;
+            var valor = Convert.ToDecimal(valorTextBox.Text);
+
+            conta.EfetuarOperacao(valor, operacao);
+
+            movimentacaoDataGrid.ItemsSource = conta.Movimentos;
+            movimentacaoDataGrid.Items.Refresh();
+
+            saldoTextBox.Text = conta.Saldo.ToString("c");
         }
     }
 }

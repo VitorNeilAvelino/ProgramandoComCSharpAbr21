@@ -8,6 +8,11 @@ namespace Fintech.Modelos
 {
     public class ContaEspecial : Conta
     {
+        public ContaEspecial()
+        {
+
+        }
+
         public ContaEspecial(Agencia agencia, int numero, string digitoVerificador, decimal limite) 
             : base(agencia, numero, digitoVerificador)
         {
@@ -18,6 +23,8 @@ namespace Fintech.Modelos
 
         public override void EfetuarOperacao(decimal valor, Operacao operacao)
         {
+            var sucesso = true;
+
             switch (operacao)
             {
                 case Operacao.Deposito:
@@ -28,8 +35,14 @@ namespace Fintech.Modelos
                     {
                         Saldo -= valor;
                     }
+                    else
+                    {
+                        sucesso = false;
+                    }
                     break;
             }
+
+            if (sucesso) base.AdicionarMovimento(new Movimento(operacao, valor));
         }
     }
 }

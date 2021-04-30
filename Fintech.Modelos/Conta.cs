@@ -8,6 +8,11 @@ namespace Fintech.Modelos
 {
     public abstract class Conta
     {
+        public Conta()
+        {
+
+        }
+
         protected Conta(Agencia agencia, int numero, string digitoVerificador)
         {
             Agencia = agencia;
@@ -19,10 +24,13 @@ namespace Fintech.Modelos
         public Agencia Agencia { get; set; }
         public int Numero { get; set; }
         public string DigitoVerificador { get; set; }
-        public decimal Saldo { get; set; }
+        public decimal Saldo { get; protected set; }
+        public List<Movimento> Movimentos { get; set; } = new List<Movimento>();
 
         public virtual void EfetuarOperacao(decimal valor, Operacao operacao)
         {
+            var sucesso = true;
+
             switch (operacao)
             {
                 case Operacao.Deposito:
@@ -33,8 +41,19 @@ namespace Fintech.Modelos
                     {
                         Saldo -= valor; 
                     }
+                    else
+                    {
+                        sucesso = false;
+                    }
                     break;
             }
+
+            if(sucesso) AdicionarMovimento(new Movimento(operacao, valor));
+        }
+
+        public void AdicionarMovimento(Movimento movimento)
+        {
+            Movimentos.Add(movimento);
         }
     }
 }
