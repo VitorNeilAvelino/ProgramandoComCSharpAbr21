@@ -10,6 +10,7 @@ namespace Fintech.Modelos
             Valor = valor;
         }
 
+        public Conta Conta { get; set; }
         public DateTime Data { get; set; } = DateTime.Now;
         public Operacao Operacao { get; set; }
         public decimal Valor { get; set; }

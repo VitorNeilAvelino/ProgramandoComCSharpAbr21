@@ -27,9 +27,10 @@ namespace Fintech.Modelos
         public decimal Saldo { get; protected set; }
         public List<Movimento> Movimentos { get; set; } = new List<Movimento>();
 
-        public virtual void EfetuarOperacao(decimal valor, Operacao operacao)
+        public virtual Movimento EfetuarOperacao(decimal valor, Operacao operacao)
         {
             var sucesso = true;
+            Movimento movimento = null;
 
             switch (operacao)
             {
@@ -48,11 +49,20 @@ namespace Fintech.Modelos
                     break;
             }
 
-            if(sucesso) AdicionarMovimento(new Movimento(operacao, valor));
+            if (sucesso)
+            {
+                movimento = new Movimento(operacao, valor);
+
+                AdicionarMovimento(movimento);
+            }
+
+            return movimento;
         }
 
         public void AdicionarMovimento(Movimento movimento)
         {
+            movimento.Conta = this;
+
             Movimentos.Add(movimento);
         }
     }

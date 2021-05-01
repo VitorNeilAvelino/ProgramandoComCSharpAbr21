@@ -21,9 +21,10 @@ namespace Fintech.Modelos
 
         public decimal Limite { get; set; }
 
-        public override void EfetuarOperacao(decimal valor, Operacao operacao)
+        public override Movimento EfetuarOperacao(decimal valor, Operacao operacao)
         {
             var sucesso = true;
+            Movimento movimento = null;
 
             switch (operacao)
             {
@@ -42,7 +43,14 @@ namespace Fintech.Modelos
                     break;
             }
 
-            if (sucesso) base.AdicionarMovimento(new Movimento(operacao, valor));
+            if (sucesso)
+            {
+                movimento = new Movimento(operacao, valor);
+
+                AdicionarMovimento(movimento);
+            }
+
+            return movimento;
         }
     }
 }
