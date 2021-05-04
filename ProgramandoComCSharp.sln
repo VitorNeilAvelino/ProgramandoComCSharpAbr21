@@ -19,9 +19,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharp.Capitulo02.GeradorSe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fintech.ModelosTests", "Fintech.ModelosTests\Fintech.ModelosTests.csproj", "{AAD8C6F9-AD5E-40C8-9083-B22742B7B486}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.Capitulo08.Colecoes.Testes", "CSharp.Capitulo08.Colecoes.Testes\CSharp.Capitulo08.Colecoes.Testes.csproj", "{BD331489-8B3D-4596-996E-7F2752D9D0C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharp.Capitulo08.Colecoes.Testes", "CSharp.Capitulo08.Colecoes.Testes\CSharp.Capitulo08.Colecoes.Testes.csproj", "{BD331489-8B3D-4596-996E-7F2752D9D0C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fintech.Repositorios.SistemaArquivos", "Fintech.Repositorios.SistemaArquivos\Fintech.Repositorios.SistemaArquivos.csproj", "{4E096A59-FF38-4E23-A418-0B5B47D45616}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fintech.Repositorios.SistemaArquivos", "Fintech.Repositorios.SistemaArquivos\Fintech.Repositorios.SistemaArquivos.csproj", "{4E096A59-FF38-4E23-A418-0B5B47D45616}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fintech.Repositorios.SistemaArquivosTests", "Fintech.Repositorios.SistemaArquivosTests\Fintech.Repositorios.SistemaArquivosTests.csproj", "{102ABA43-3BE3-412F-A192-A8947EDCBAB8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{4E096A59-FF38-4E23-A418-0B5B47D45616}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E096A59-FF38-4E23-A418-0B5B47D45616}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E096A59-FF38-4E23-A418-0B5B47D45616}.Release|Any CPU.Build.0 = Release|Any CPU
+		{102ABA43-3BE3-412F-A192-A8947EDCBAB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{102ABA43-3BE3-412F-A192-A8947EDCBAB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{102ABA43-3BE3-412F-A192-A8947EDCBAB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{102ABA43-3BE3-412F-A192-A8947EDCBAB8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

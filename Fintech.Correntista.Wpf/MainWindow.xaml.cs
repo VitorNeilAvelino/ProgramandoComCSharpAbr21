@@ -1,18 +1,9 @@
 ﻿using Fintech.Modelos;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using Fintech.Repositorios.SistemaArquivos;
 
 namespace Fintech.Correntista.Wpf
 {
@@ -21,6 +12,8 @@ namespace Fintech.Correntista.Wpf
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly MovimentoRepositorio repositorio = new (Properties.Settings.Default.CaminhoArquivoMovimento);
+
         public List<Cliente> Clientes { get; set; } = new List<Cliente>();
         public Cliente ClienteSelecionado { get; set; }
 
@@ -211,6 +204,8 @@ namespace Fintech.Correntista.Wpf
 
             var conta = (Conta)contaComboBox.SelectedItem;
 
+            conta.Movimentos = repositorio.Selecionar(conta.Agencia.Numero, conta.Numero);
+
             movimentacaoDataGrid.ItemsSource = conta.Movimentos;
             saldoTextBox.Text = conta.Saldo.ToString("c");
         }
@@ -221,7 +216,9 @@ namespace Fintech.Correntista.Wpf
             var operacao = (Operacao)operacaoComboBox.SelectedItem;
             var valor = Convert.ToDecimal(valorTextBox.Text);
 
-            conta.EfetuarOperacao(valor, operacao);
+            var movimento = conta.EfetuarOperacao(valor, operacao);
+
+            repositorio.Inserir(movimento);
 
             movimentacaoDataGrid.ItemsSource = conta.Movimentos;
             movimentacaoDataGrid.Items.Refresh();

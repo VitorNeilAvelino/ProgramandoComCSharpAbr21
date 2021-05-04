@@ -6,7 +6,7 @@ namespace Fintech.Modelos
     {
         void Inserir(Movimento movimento);
         void Atualizar(Movimento movimento);
-        List<Movimento> Selecionar(Conta conta);
+        List<Movimento> Selecionar(int numeroAgencia, int numeroConta);
         void Excluir(int id);
     }
 }
