@@ -21,36 +21,9 @@ namespace Fintech.Modelos
 
         public decimal Limite { get; set; }
 
-        public override Movimento EfetuarOperacao(decimal valor, Operacao operacao)
+        public Movimento EfetuarOperacao(decimal valor, Operacao operacao)
         {
-            var sucesso = true;
-            Movimento movimento = null;
-
-            switch (operacao)
-            {
-                case Operacao.Deposito:
-                    Saldo += valor;
-                    break;
-                case Operacao.Saque:
-                    if (Saldo + Limite >= valor)
-                    {
-                        Saldo -= valor;
-                    }
-                    else
-                    {
-                        sucesso = false;
-                    }
-                    break;
-            }
-
-            if (sucesso)
-            {
-                movimento = new Movimento(operacao, valor);
-
-                AdicionarMovimento(movimento);
-            }
-
-            return movimento;
+            return /*base.*/EfetuarOperacao(valor, operacao, Limite);           
         }
     }
 }

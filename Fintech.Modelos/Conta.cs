@@ -40,9 +40,9 @@ namespace Fintech.Modelos
                                                         .Where(m => m.Operacao == Operacao.Saque)
                                                         .Sum(m => m.Valor);
 
-        public virtual Movimento EfetuarOperacao(decimal valor, Operacao operacao)
+        public virtual Movimento EfetuarOperacao(decimal valor, Operacao operacao, decimal limite = 0)
         {
-            var sucesso = true;
+            //var sucesso = true;
             Movimento movimento = null;
 
             switch (operacao)
@@ -51,23 +51,24 @@ namespace Fintech.Modelos
                     Saldo += valor;
                     break;
                 case Operacao.Saque:
-                    if (Saldo >= valor)
+                    if (Saldo + limite >= valor)
                     {
                         Saldo -= valor;
                     }
                     else
                     {
-                        sucesso = false;
+                        throw new SaldoInsuficienteException();
+                        //sucesso = false;
                     }
                     break;
             }
 
-            if (sucesso)
-            {
+            //if (sucesso)
+            //{
                 movimento = new Movimento(operacao, valor);
 
                 AdicionarMovimento(movimento);
-            }
+            //}
 
             return movimento;
         }

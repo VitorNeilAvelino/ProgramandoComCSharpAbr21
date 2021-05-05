@@ -30,8 +30,17 @@ namespace Fintech.Modelos.Tests
             conta.EfetuarOperacao(990m, Operacao.Saque);
             Assert.IsTrue(conta.Saldo == -1000m);
 
-            conta.EfetuarOperacao(10m, Operacao.Saque);
-            Assert.IsTrue(conta.Saldo == -1000m);
+            Assert.ThrowsException<SaldoInsuficienteException>(() => conta.EfetuarOperacao(10m, Operacao.Saque));
+
+            try
+            {
+                conta.EfetuarOperacao(10m, Operacao.Saque);
+            }
+            catch (Exception ex)
+            {
+                Assert.IsTrue(conta.Saldo == -1000m);                
+                Assert.IsInstanceOfType(ex, typeof(SaldoInsuficienteException));
+            }
 
             conta.EfetuarOperacao(1000m, Operacao.Deposito);
             Assert.IsTrue(conta.Saldo == 0m);

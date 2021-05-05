@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using Fintech.Repositorios.SistemaArquivos;
+using System.IO;
 
 namespace Fintech.Correntista.Wpf
 {
@@ -202,9 +203,13 @@ namespace Fintech.Correntista.Wpf
                 return;
             }
 
+            mainSpinner.Visibility = Visibility.Visible;
+
             var conta = (Conta)contaComboBox.SelectedItem;
 
             conta.Movimentos = repositorio.Selecionar(conta.Agencia.Numero, conta.Numero);
+
+            mainSpinner.Visibility = Visibility.Hidden;
 
             movimentacaoDataGrid.ItemsSource = conta.Movimentos;
             saldoTextBox.Text = conta.Saldo.ToString("c");
@@ -212,18 +217,55 @@ namespace Fintech.Correntista.Wpf
 
         private void incluirOperacaoButton_Click(object sender, RoutedEventArgs e)
         {
-            var conta = (Conta)contaComboBox.SelectedItem;
-            var operacao = (Operacao)operacaoComboBox.SelectedItem;
-            var valor = Convert.ToDecimal(valorTextBox.Text);
+            try
+            {
+                var conta = (Conta)contaComboBox.SelectedItem;
+                var operacao = (Operacao)operacaoComboBox.SelectedItem;
+                var valor = Convert.ToDecimal(valorTextBox.Text);
 
-            var movimento = conta.EfetuarOperacao(valor, operacao);
+                var movimento = conta.EfetuarOperacao(valor, operacao);
 
-            repositorio.Inserir(movimento);
+                repositorio.Inserir(movimento);
 
-            movimentacaoDataGrid.ItemsSource = conta.Movimentos;
-            movimentacaoDataGrid.Items.Refresh();
+                movimentacaoDataGrid.ItemsSource = conta.Movimentos;
+                movimentacaoDataGrid.Items.Refresh();
 
-            saldoTextBox.Text = conta.Saldo.ToString("c");
+                saldoTextBox.Text = conta.Saldo.ToString("c");
+            }
+            catch(FileNotFoundException ex)
+            {
+                MessageBox.Show($"O arquivo {ex.FileName} não foi encontrado.");
+                //Logar(ex); - log4Net
+            }
+            catch (DirectoryNotFoundException)
+            {
+                //new FileInfo().Extension;
+                //foreach (var arquivo in Directory.GetFiles(""))
+                //{
+                //    var info = new FileInfo(arquivo).Extension;
+                //}
+
+                MessageBox.Show($"O diretório {Properties.Settings.Default.CaminhoArquivoMovimento} não foi encontrado.");
+                //Logar(ex); - log4Net
+            }
+            catch (UnauthorizedAccessException)
+            {
+                MessageBox.Show($"O arquivo {Properties.Settings.Default.CaminhoArquivoMovimento} está com o atributo Somente Leitura.");
+                //Logar(ex); - log4Net
+            }
+            catch (SaldoInsuficienteException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Eita! Algo deu errado e em breve teremos uma solução.");
+                //Logar(ex);
+            }
+            //finally
+            //{
+            //    // É executado sempre! Mesmo que haja algum return no código.
+            //}
         }
     }
 }

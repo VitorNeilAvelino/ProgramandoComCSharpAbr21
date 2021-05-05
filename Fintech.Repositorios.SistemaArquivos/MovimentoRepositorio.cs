@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading;
 
 namespace Fintech.Repositorios.SistemaArquivos
 {
@@ -40,6 +41,8 @@ namespace Fintech.Repositorios.SistemaArquivos
 
         public List<Movimento> Selecionar(int numeroAgencia, int numeroConta)
         {
+            //Thread.Sleep(7000);
+
             var movimentos = new List<Movimento>();
 
             foreach (var linha in File.ReadAllLines(Caminho))
@@ -54,6 +57,36 @@ namespace Fintech.Repositorios.SistemaArquivos
                 var valor = Convert.ToDecimal(propriedades[4]);
 
                 if (numeroAgencia == propriedadeNumeroAgencia && 
+                    numeroConta == propriedadeNumeroConta)
+                {
+                    var movimento = new Movimento(operacao, valor);
+                    movimento.Data = data;
+
+                    movimentos.Add(movimento);
+                }
+            }
+
+            return movimentos;
+        }
+
+        public List<Movimento> SelecionarAsync(int numeroAgencia, int numeroConta)
+        {
+            //Thread.Sleep(7000);
+
+            var movimentos = new List<Movimento>();
+
+            foreach (var linha in File.ReadAllLines(Caminho))
+            {
+                if (linha.Trim() == string.Empty) continue;
+
+                var propriedades = linha.Split(';');
+                var propriedadeNumeroAgencia = Convert.ToInt32(propriedades[0]);
+                var propriedadeNumeroConta = Convert.ToInt32(propriedades[1]);
+                var data = Convert.ToDateTime(propriedades[2]);
+                var operacao = (Operacao)Convert.ToInt32(propriedades[3]);
+                var valor = Convert.ToDecimal(propriedades[4]);
+
+                if (numeroAgencia == propriedadeNumeroAgencia &&
                     numeroConta == propriedadeNumeroConta)
                 {
                     var movimento = new Movimento(operacao, valor);
