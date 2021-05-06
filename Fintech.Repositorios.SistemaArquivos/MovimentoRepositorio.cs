@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace Fintech.Repositorios.SistemaArquivos
 {
@@ -69,13 +70,13 @@ namespace Fintech.Repositorios.SistemaArquivos
             return movimentos;
         }
 
-        public List<Movimento> SelecionarAsync(int numeroAgencia, int numeroConta)
+        public async Task<List<Movimento>> SelecionarAsync(int numeroAgencia, int numeroConta)
         {
-            //Thread.Sleep(7000);
+            await Task.Delay(7000);
 
             var movimentos = new List<Movimento>();
 
-            foreach (var linha in File.ReadAllLines(Caminho))
+            foreach (var linha in await File.ReadAllLinesAsync(Caminho))
             {
                 if (linha.Trim() == string.Empty) continue;
 

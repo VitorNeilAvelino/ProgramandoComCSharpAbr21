@@ -3,8 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-using Fintech.Repositorios.SistemaArquivos;
+using Fintech.Repositorios.SqlServer;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace Fintech.Correntista.Wpf
 {
@@ -13,7 +14,8 @@ namespace Fintech.Correntista.Wpf
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly MovimentoRepositorio repositorio = new (Properties.Settings.Default.CaminhoArquivoMovimento);
+        //private readonly MovimentoRepositorio repositorio = new (Properties.Settings.Default.CaminhoArquivoMovimento);
+        private readonly MovimentoRepositorio repositorio = new (Properties.Settings.Default.StringConexao);
 
         public List<Cliente> Clientes { get; set; } = new List<Cliente>();
         public Cliente ClienteSelecionado { get; set; }
@@ -196,7 +198,7 @@ namespace Fintech.Correntista.Wpf
             saldoTextBox.Clear();
         }
 
-        private void contaComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void contaComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (contaComboBox.SelectedIndex == -1)
             {
@@ -207,7 +209,8 @@ namespace Fintech.Correntista.Wpf
 
             var conta = (Conta)contaComboBox.SelectedItem;
 
-            conta.Movimentos = repositorio.Selecionar(conta.Agencia.Numero, conta.Numero);
+            //conta.Movimentos = repositorio.Selecionar(conta.Agencia.Numero, conta.Numero);
+            conta.Movimentos = await repositorio.SelecionarAsync(conta.Agencia.Numero, conta.Numero);
 
             mainSpinner.Visibility = Visibility.Hidden;
 

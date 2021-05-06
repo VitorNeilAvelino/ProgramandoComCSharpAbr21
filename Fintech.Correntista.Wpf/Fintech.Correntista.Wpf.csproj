@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Fintech.Modelos\Fintech.Modelos.csproj" />
-    <ProjectReference Include="..\Fintech.Repositorios.SistemaArquivos\Fintech.Repositorios.SistemaArquivos.csproj" />
+    <ProjectReference Include="..\Fintech.Repositorios.SqlServer\Fintech.Repositorios.SqlServer.csproj" />
   </ItemGroup>
 
   <ItemGroup>
