@@ -1,8 +1,8 @@
 ﻿namespace Fintech.Modelos
 {
-    public class ContaCorrente : Conta
+    public class ContaCorrente : Conta //TODO: Herança.
     {
-        public ContaCorrente()
+        public ContaCorrente() //TODO: Polimorfismo de sobrecarga.
         {
         }
 

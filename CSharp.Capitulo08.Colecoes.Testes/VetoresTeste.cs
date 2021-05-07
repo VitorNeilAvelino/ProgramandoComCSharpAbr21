@@ -59,6 +59,7 @@ namespace CSharp.Capitulo08.Colecoes.Testes
         //    return (valor1 + valor2) / 2;
         //}
 
+        //TODO: Polimorfismo de sobrecarga.
         private decimal Media(params decimal[] valores)
         {
             var soma = 0m;

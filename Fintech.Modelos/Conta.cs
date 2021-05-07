@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Fintech.Modelos
 {
+    //TODO: OO - Classe ou abstração.
     public abstract class Conta
     {
         public Conta()
@@ -26,7 +27,7 @@ namespace Fintech.Modelos
         public string DigitoVerificador { get; set; }
         public decimal Saldo { get { return TotalDepositos - TotalSaques; } protected set { } }
         public List<Movimento> Movimentos { get; set; } = new List<Movimento>();
-        public decimal TotalDepositos
+        public decimal TotalDepositos //TODO: OO - Encapsulamento
         {
             get
             {
@@ -40,6 +41,7 @@ namespace Fintech.Modelos
                                                         .Where(m => m.Operacao == Operacao.Saque)
                                                         .Sum(m => m.Valor);
 
+        //TODO: OO - virtual - Polimorfismo por sobrescrita (substituição)
         public virtual Movimento EfetuarOperacao(decimal valor, Operacao operacao, decimal limite = 0)
         {
             //var sucesso = true;
