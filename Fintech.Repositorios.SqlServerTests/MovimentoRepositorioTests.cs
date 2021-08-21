@@ -30,5 +30,11 @@ namespace Fintech.Repositorios.SqlServer.Tests
 
             Assert.IsTrue(movimentos.Count > 0);
         }
+
+        [TestMethod()]
+        public void SelecionarAsyncTest()
+        {
+            var movimentos = repositorio.SelecionarAsync(123, 456).Result;
+        }
     }
 }
